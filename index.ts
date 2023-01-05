@@ -8,11 +8,20 @@ const app: Express = express();
 const port = process.env.PORT;
 
 const data = {
-  title: "Salsa.dev",
+  title: "Salsa Wars - The Ice Strikes Back",
   date: "01/04/2023",
-  name: "Rafael Tanizawa",
-  age: 35,
-  birthdate: "04/11/1987"
+  people: [
+    {
+      firstName: "Luke",
+      lastName: "Skywalker",
+      jedi: true
+    },
+    {
+      firstName: "Anakin",
+      lastName: "Skywalker",
+      jedi: false
+    }
+  ]
 }
 
 app.get('/', async (req: Request, res: Response) => {

@@ -17,7 +17,6 @@
 			background: rgb(172,21,255);
 			color: rgb(255,255,255);
 			padding: 15px;
-			padding-left: 200px;
 			box-sizing: border-box;
 			display: block;
 			position: relative;
@@ -66,13 +65,17 @@
 		<h3>{{title}}</h3>
 		<p>{{date}}</p>
 	</div>
+	{{#each people}}
 	<div class="report-body">
 		<div class="info">
-			<p>Student: {{name}}</p>
-			<p>Age: {{age}}</p>
-			<p>Birthdate: {{birthdate}}</p>
+			<p>First Name: {{this.firstName}}</p>
+			<p>Last Name: {{this.lastName}}</p>
+			{{#if this.jedi}}
+			<p>Jedi</p>
+			{{/if}}
 		</div>
 	</div>
+	{{/each}}
 	<div class="report-footer">
 		Salsa.dev - All Rights reserved.
 	</div>

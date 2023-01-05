@@ -3,12 +3,16 @@ import path from "path";
 import puppeteer from 'puppeteer';
 import handlebars from "handlebars";
 
+type Person = {
+    firstName: string;
+    lastName: string;
+    jedi: boolean;
+}
+
 type PdfData = {
     title: string;
     date: string;
-    name: string;
-    age: number;
-    birthdate: string;
+    people: Person[];
 }
 
 export async function createPDF(data: PdfData) {
@@ -18,7 +22,7 @@ export async function createPDF(data: PdfData) {
 
     const now = new Date();
 	const milis = now.getTime();
-	const pdfPath = path.join('pdf', `${data.name}-${milis}.pdf`);
+	const pdfPath = path.join('pdf', `${data.title}-${milis}.pdf`);
 
     let options = {
         width: '1230px',
