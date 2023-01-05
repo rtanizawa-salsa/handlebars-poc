@@ -8,6 +8,7 @@ const app: Express = express();
 const port = process.env.PORT;
 
 const data = {
+  bgColor: "rgb(172,21,255)",
   title: "Salsa Wars - The Ice Strikes Back",
   date: "01/04/2023",
   people: [
@@ -25,6 +26,12 @@ const data = {
 }
 
 app.get('/', async (req: Request, res: Response) => {
+  const html = await createPDF(data)
+  res.send(html);
+});
+
+app.get('/alternative', async (req: Request, res: Response) => {
+  data.bgColor = "rgb(246,197,161)"
   const html = await createPDF(data)
   res.send(html);
 });
